@@ -72,11 +72,17 @@
             $img->showImage();
         }
         else{
+            $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             $img->saveToPng(dirname(__FILE__).'/'.$path);
-            echo '        
+            echo '
+                <a href="'.$actual_link.'&return_image=true" target="_blank">
+                    Open In New Tab 
+                </a>        
+                &nbsp&nbsp&nbsp&nbsp
                 <a download="'.$path.'.png" href="'.$path.'.png">
-                    Click to Download     <br>
+                    Click to Download    <br><br>
                 </a>
+                
                 <img src="'.$path.'.png" width="50%" height="50%" border="1"></img>
             ';
         }
