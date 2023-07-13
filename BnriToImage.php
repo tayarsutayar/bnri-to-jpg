@@ -6,8 +6,8 @@ class BnriToImage {
     function createImage($tanggal, $nomor, $tahun, $penandatangan, $link_document){
 
         $fontSize = 100;
-        $imgWidth = 3400;
-        $imgHeight = 1750;
+        $imgWidth = 4550;
+        $imgHeight = 2200;
         $spacing = 150;
         $angle = 0;
         //text font path
