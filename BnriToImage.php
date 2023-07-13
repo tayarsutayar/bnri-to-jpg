@@ -77,6 +77,7 @@ class BnriToImage {
     }
     
     function showImage(){
+        ob_clean();
         header('Content-Type: image/png');
         return imagepng($this->img);
     }

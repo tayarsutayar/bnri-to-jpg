@@ -67,15 +67,19 @@
         $path = 'result/BNRI-Tahun'.$tahun.'-Nomor'.$nomor;
 
         $img->createImage($tanggal, $nomor, $tahun, $penandatangan, $link_qr);
-
-        $img->saveToPng(dirname(__FILE__).'/'.$path);
         
-        echo '        
-        <a download="'.$path.'.png" href="'.$path.'.png">
-            Click to Download     <br>
-        </a>
-        <img src="'.$path.'.png" width="50%" height="50%" border="1"></img>
-        ';
+        if(isset($_GET['return_image']) && $_GET['return_image'] == true){
+            $img->showImage();
+        }
+        else{
+            $img->saveToPng(dirname(__FILE__).'/'.$path);
+            echo '        
+                <a download="'.$path.'.png" href="'.$path.'.png">
+                    Click to Download     <br>
+                </a>
+                <img src="'.$path.'.png" width="50%" height="50%" border="1"></img>
+            ';
+        }
     }
 
     ?>
