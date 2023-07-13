@@ -79,7 +79,10 @@ class BnriToImage {
     function showImage(){
         ob_clean();
         header('Content-Type: image/png');
-        return imagepng($this->img);
+        imagepng($this->img);
+        $rawImageBytes = ob_get_clean();
+        echo "<img src='data:image/jpeg;base64," . base64_encode( $rawImageBytes ) . "' />";
+        exit();
     }
     
     function saveToJpg($fileName, $location = ''){

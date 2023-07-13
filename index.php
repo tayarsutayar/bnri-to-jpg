@@ -70,7 +70,6 @@
         
         if(isset($_GET['return_image']) && $_GET['return_image'] == true){
             $img->showImage();
-            exit();
         }
         else{
             $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
